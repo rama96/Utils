@@ -58,18 +58,6 @@ def numerical_impute(df):
     print(missing_new)
     return new_data_1
 
-def encode(data):
-    '''function to encode non-null data and replace it in the original data'''
-    #retains only non-null values
-    nonulls = np.array(data.dropna())
-    #reshapes the data for encoding
-    impute_reshape = nonulls.reshape(-1,1)
-    #encode date
-    impute_ordinal = encoder.fit_transform(impute_reshape)
-    #Assign back encoded values to non-null values
-    data.loc[data.notnull()] = np.squeeze(impute_ordinal)
-    return data
-
 
 # %%
 def categorical_impute(df):
