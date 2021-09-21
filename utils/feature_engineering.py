@@ -21,27 +21,31 @@ from sklearn.preprocessing import PowerTransformer
 
 
 class PreProcess :
-
+    """ A class used to prepare Categorical and Numerical data that is later fed into the model  """
     # %%
     def __init__(self) -> None:
         pass
         
     # %%
-    def prepare_data(self , dt):
+    def prepare_data(self , dt:pd.DataFrame) -> pd.DataFrame: 
+        """ Function to Normalize numeric Variables and OneHot encode categorical variables """
+        
         dt_columns=dt.columns
         for c in dt_columns:
             print(c)
             if dt[c].dtype != "object":
-                dt[c] = self.Normalize(dt[c],2)
+                dt[c] = self.normalize(dt[c],2)
             else:
-                onehot_encoded = self.OneHot(dt[c], c)
+                onehot_encoded = self.onehot(dt[c], c)
                 dt = dt.join(onehot_encoded)
                 dt = dt.drop([c], axis=1)
         return dt
 
 
     # %%
-    def Normalize(self , X_skewed, skew_threshold = 2):
+    def normalize(self , X_skewed:pd.Series , skew_threshold:int = 2) -> pd.Series:
+        """ Helper function which normalizes numeric variables using power transformation """
+        
         if skew(X_skewed)>abs(skew_threshold):
             #X_Normalized, m = stats.boxcox(X_skewed)
             pt = PowerTransformer()
@@ -51,7 +55,9 @@ class PreProcess :
             return X_skewed
 
     # %%
-    def OneHot(self , X_column, column_name):
+    def onehot(self , X_column:pd.Series , column_name:str) -> pd.DataFrame:
+        """ Helper function that Uses a label encoder which then Assign labels and OneHotEncodes the whole variable"""
+        
         #Labe Encoding
         lbl = LabelEncoder() 
         lbl.fit(list(X_column.values)) 

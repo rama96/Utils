@@ -9,13 +9,16 @@ from sklearn.ensemble import ExtraTreesRegressor
 #from sklearn.neighbors import KNeighborsRegressor
 
 class MissingDataHandlerV1:
+    """ A class that takes in the input as pd.DataFrame to analyze missing data and impute Numerical and Categorical values """
     
-    def __init__(self,df) -> None:
+    def __init__(self , df:pd.DataFrame ) -> None:
         self.df = df
         self.show_distribution(self)
         self.assign_data_labels()
     
-    def show_distribution(self):
+    def show_distribution(self) -> None:
+        """ Shows Distribution of Missing data in the dataframe inputed """
+        
         missing = self.df.isnull().sum()
         missing = missing[missing > 0]
         missing = missing/len(self.df)
@@ -24,13 +27,17 @@ class MissingDataHandlerV1:
         missing.plot.bar()
         print(missing.head(50))
 
-    def assign_data_labels(self):
+    def assign_data_labels(self) -> None:
+        """ Assigns data labels to categorical and numerical variables """
+        
         self.numeric_data = self.df.select_dtypes(include=[np.number])
         self.categorical_data = self.df.select_dtypes(exclude=[np.number])
         print("Numerical Data : " , self.numeric_data.head())
         print("Categorical Data : " , self.categorical_data.head())
 
-    def numerical_impute(self):
+    def numerical_impute(self) -> None:
+        """ Imputes valies for DataFrame containing numerical columns """
+        
         my_imputer = SimpleImputer()
         _df = self.numeric_data.copy()
         _df = pd.DataFrame(my_imputer.fit_transform(_df))
@@ -42,7 +49,8 @@ class MissingDataHandlerV1:
 
 
     # %%
-    def categorical_impute(self):
+    def categorical_impute(self) -> None :
+        """ Imputes valies for DataFrame containing Categorical columns """
         #instantiate both packages to use
         encoder = OrdinalEncoder()
         imputer = IterativeImputer(ExtraTreesRegressor())
