@@ -8,7 +8,7 @@ from sklearn.impute import IterativeImputer
 from sklearn.ensemble import ExtraTreesRegressor
 #from sklearn.neighbors import KNeighborsRegressor
 
-class MissingDataHandler:
+class MissingDataHandlerV1:
     
     def __init__(self,df) -> None:
         self.df = df
@@ -67,4 +67,6 @@ class MissingDataHandler:
         encode_data = pd.DataFrame(np.round(imputer.fit_transform(self.categorical_data)),columns = self.categorical_data.columns)
         self.categorical_imputed_data = encode_data
         
-
+    
+if __name__ == "main":
+    pass
