@@ -1,3 +1,5 @@
+""" Module for Pre-Processing of data before inputing the same into the model """
+
 import pandas as pd
 from scipy.stats import norm, skew 
 
