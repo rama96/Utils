@@ -1,5 +1,5 @@
-from utils.missing_data import MissingDataHandlerV1
-from utils import DIR_SAMPLE
+from easy_ml.missing_data import MissingDataHandlerV1
+from easy_ml import DIR_SAMPLE
 import pandas as pd
 from tests.conftest import test_data
 

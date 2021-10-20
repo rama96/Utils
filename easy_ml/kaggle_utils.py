@@ -1,5 +1,5 @@
 from fastai.vision.all import *
-from utils import DIR_KAGGLE , DIR_DATA , create_directory_if_not_exists
+from easy_ml import DIR_KAGGLE , DIR_DATA , create_directory_if_not_exists
 file = DIR_KAGGLE.joinpath("kaggle.json")
 import pathlib
 

@@ -1,4 +1,4 @@
-from utils import DIR_SAMPLE
+from easy_ml import DIR_SAMPLE
 import pandas as pd
 import pytest 
 

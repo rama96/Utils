@@ -1,5 +1,5 @@
-from utils.feature_engineering import FeatureScaler
-from utils import DIR_SAMPLE
+from easy_ml.feature_engineering import FeatureScaler
+from easy_ml import DIR_SAMPLE
 import pandas as pd
 from tests.conftest import test_data
 

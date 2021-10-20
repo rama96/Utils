@@ -4,10 +4,10 @@ import os
 import pandas as pd
 from datetime import datetime 
 
-# from utils.feature_engineering import *
-# from utils.missing_data import *
-# from utils.models import *
-# from utils.viz import *
+# from easy_ml.feature_engineering import *
+# from easy_ml.missing_data import *
+# from easy_ml.models import *
+# from easy_ml.viz import *
 
 today_time = datetime.today()
 
@@ -34,16 +34,16 @@ def create_directory_if_not_exists(path: Path) -> None:
             print(e)
 
 
-DIR_PACKAGE = Path(__file__).resolve().parent  # ../Utils/utils
-DIR_BASE = DIR_PACKAGE.parent  # ../Utils/
+DIR_PACKAGE = Path(__file__).resolve().parent  # ../easy_ml/easy_ml
+DIR_BASE = DIR_PACKAGE.parent  # ../easy_ml/
 
-# ../Utils/DATA
+# ../easy_ml/DATA
 DIR_DATA = DIR_BASE.joinpath("DATA")
 
-# ../Utils/DATA
+# ../easy_ml/DATA
 DIR_KAGGLE = DIR_BASE.joinpath("kaggle")
 
-# ../Utils/SAMPLE
+# ../easy_ml/SAMPLE
 DIR_SAMPLE = DIR_DATA.joinpath("SAMPLE")
 
 create_directory_if_not_exists(DIR_DATA)

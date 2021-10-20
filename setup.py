@@ -17,7 +17,7 @@ AUTHOR_EMAIL = 'ramamurthi96@gmail.com'
 URL = 'https://github.com/rama96/Utils.git'
 
 LICENSE = 'Apache License 2.0'
-DESCRIPTION = 'Basic utils for Data Processing and Machine Learning'
+DESCRIPTION = 'Basic easy_ml for Data Processing and Machine Learning'
 LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"
 
