@@ -1,10 +1,25 @@
 from fastai.vision.all import *
-from utils import DIR_KAGGLE , DIR_DATA
+from utils import DIR_KAGGLE , DIR_DATA , create_directory_if_not_exists
+file = DIR_KAGGLE.joinpath("kaggle.json")
+import pathlib
 
-def setup_kaggle():
-    file = DIR_KAGGLE.joinpath("kaggle.json")
 
-    with open(file) as f:
+def setup_kaggle(filepath:typing.Union[str, pathlib.Path] = file):
+    """ 
+        Reads the downlaoded kaggle.json from the specified filepath from
+        and stores it ~/.kaggle folder to setup kaggle library
+
+    Parameters
+	----------
+	filepath : typing.Union[str, pathlib.Path]
+		Accepts the path of kaggle.json file
+	Returns
+	-------
+	None
+
+    """
+    
+    with open(filepath) as f:
         creds = json.load(f)
     
     cred_path = Path('~/.kaggle/kaggle.json').expanduser()
@@ -13,9 +28,19 @@ def setup_kaggle():
         cred_path.parent.mkdir(exist_ok = True)
         cred_path.mk_write(json.dumps(creds))
         cred_path.chmod(0o600)
-
+    
 
 def download_sample_datasets():
+    """ 
+        Downloads train.csv from titanic datasets and creates a sample dataset with 25 odd entries for testing purposes under the folder SAMPLE inside DATA
+    Parameters
+	----------
+	None
+    
+    Returns
+    -------
+	
+    """
     
     from kaggle.api.kaggle_api_extended import KaggleApi
 
@@ -30,7 +55,11 @@ def download_sample_datasets():
     filepath = TITANIC.joinpath("train.csv")
     df = pd.read_csv(filepath)
     
+    ## Creating Samples
+    DIR_SAMPLE = DIR_DATA.joinpath('SAMPLE')
+    create_directory_if_not_exists(DIR_SAMPLE)
+    
     ## Creating samples for testing
     sample = df.sample(30 , random_state=100)
-    sample_file = TITANIC.joinpath("sample.csv")
+    sample_file = DIR_SAMPLE.joinpath("sample.csv")
     sample.to_csv(sample_file)

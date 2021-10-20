@@ -23,7 +23,7 @@ class FeatureScaling:
         cols = self.min_max_cols
         if not cols:
             return df
-        else 
+        else :
             min_max = MinMaxScaler()
             df[cols] = pd.DataFrame(min_max.fit_transform(df[cols]) , columns = cols)
             return df
@@ -32,7 +32,7 @@ class FeatureScaling:
         cols = self.standard_cols
         if not cols:
             return df
-        else 
+        else :
             min_max_scaler = StandardScaler()
             df[cols] = pd.DataFrame(min_max_scaler.fit_transform(df[cols]) , columns = cols)
             return df
