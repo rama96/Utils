@@ -64,3 +64,7 @@ def download_sample_datasets():
     sample = df.sample(30 , random_state=100)
     sample_file = DIR_SAMPLE.joinpath("sample.csv")
     sample.to_csv(sample_file)
+
+if __name__=='__main__':
+    setup_kaggle()
+    download_sample_datasets()

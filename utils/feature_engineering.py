@@ -11,12 +11,13 @@ from sklearn.preprocessing import LabelEncoder,OneHotEncoder
 from sklearn.preprocessing import PowerTransformer
 
 
-class FeatureScaling:
+class FeatureScaler:
     
     def __init__(self , df : pd.DataFrame = None , min_max_cols : List = [] , standard_cols : List = [] , power_transform_cols : List = []) -> None:
         self.min_max_cols = min_max_cols
         self.standard_cols = standard_cols
         self.power_transform_cols = power_transform_cols
+        self.df = df
         
         
     def min_max_scaler(self,df) -> pd.DataFrame:
@@ -57,11 +58,13 @@ class FeatureScaling:
             return X_skewed
     
     @property
-    def tranform(self):
-        df = self.min_max_scaler(self,self.df)
-        df = self.standard_scaler(self,self.df)
-        df = self.power_transformer(self,self.df)
-        return df
+    def scaled_features(self):
+        transformed_df = self.min_max_scaler(self,self.df)
+        transformed_df = self.standard_scaler(self,transformed_df)
+        transformed_df = self.power_transformer(self,transformed_df)
+        return transformed_df
+
+
 
 
 

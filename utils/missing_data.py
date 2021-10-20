@@ -13,10 +13,10 @@ from sklearn.ensemble import ExtraTreesRegressor
 class MissingDataHandlerV1:
     """ A class that takes in the input as pd.DataFrame to analyze missing data and impute Numerical and Categorical values """
     
-    def __init__(self , df:pd.DataFrame ) -> None:
+    def __init__(self , df:pd.DataFrame = None ) -> None:
         self.df = df
-        self.show_distribution(self)
-        self.assign_data_labels()
+        self.show_distribution()
+        self.assign_default_data_labels()
     
     def show_distribution(self) -> None:
         """ Shows Distribution of Missing data in the dataframe inputed """
@@ -28,6 +28,7 @@ class MissingDataHandlerV1:
         missing = missing * 100
         print(missing.head(50))
         missing.plot.bar()
+        return missing
         
 
     def assign_default_data_labels(self) -> None:

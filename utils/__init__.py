@@ -43,8 +43,11 @@ DIR_DATA = DIR_BASE.joinpath("DATA")
 # ../Utils/DATA
 DIR_KAGGLE = DIR_BASE.joinpath("kaggle")
 
+# ../Utils/SAMPLE
+DIR_SAMPLE = DIR_DATA.joinpath("SAMPLE")
 
 create_directory_if_not_exists(DIR_DATA)
+create_directory_if_not_exists(DIR_SAMPLE)
 
 name = "easy_ml"
 
