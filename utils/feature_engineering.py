@@ -1,25 +1,70 @@
 """ Module for Pre-Processing of data before inputing the same into the model """
 
+from typing import List
 import pandas as pd
 from scipy.stats import norm, skew 
 
-from sklearn.preprocessing import PowerTransformer
+from sklearn.preprocessing import MinMaxScaler , StandardScaler, PowerTransformer
 
 from scipy.stats import skew
 from sklearn.preprocessing import LabelEncoder,OneHotEncoder
 from sklearn.preprocessing import PowerTransformer
 
-# import numpy as np 
-# import matplotlib.pyplot as plt
-# import scipy.stats as stats
-# import sklearn.linear_model as linear_model
-# import seaborn as sns
-# import xgboost as xgb
-# from scipy.special import boxcox1p
-# from sklearn import preprocessing
-# from scipy import stats
-# from scipy import stats
-# import seaborn as sns
+
+class FeatureScaling:
+    
+    def __init__(self , df : pd.DataFrame = None , min_max_cols : List = [] , standard_cols : List = [] , power_transform_cols : List = []) -> None:
+        self.min_max_cols = min_max_cols
+        self.standard_cols = standard_cols
+        self.power_transform_cols = power_transform_cols
+        
+        
+    def min_max_scaler(self,df) -> pd.DataFrame:
+        cols = self.min_max_cols
+        if not cols:
+            return df
+        else 
+            min_max = MinMaxScaler()
+            df[cols] = pd.DataFrame(min_max.fit_transform(df[cols]) , columns = cols)
+            return df
+    
+    def standard_scaler(self,df) -> pd.DataFrame:
+        cols = self.standard_cols
+        if not cols:
+            return df
+        else 
+            min_max_scaler = StandardScaler()
+            df[cols] = pd.DataFrame(min_max_scaler.fit_transform(df[cols]) , columns = cols)
+            return df
+        
+    def power_transformer(self,df) -> pd.DataFrame:
+        cols = self.power_transform_cols
+        if not cols:
+            return df
+        else :
+            for col in cols:
+                df[col] = self._power_transform(df[col])
+            return df
+                
+    def _power_transform(self , X_skewed:pd.Series , skew_threshold:int = 2) -> pd.Series:
+        """ Helper function which normalizes numeric variables using power transformation """
+        if skew(X_skewed)>abs(skew_threshold):
+            #X_Normalized, m = stats.boxcox(X_skewed)
+            pt = PowerTransformer()
+            X_Normalized=pt.fit_transform(X_skewed.values.reshape(-1,1))
+            return X_Normalized
+        else:
+            return X_skewed
+    
+    @property
+    def tranform(self):
+        df = self.min_max_scaler(self,self.df)
+        df = self.standard_scaler(self,self.df)
+        df = self.power_transformer(self,self.df)
+        return df
+
+
+
 
 
 class PreProcess :

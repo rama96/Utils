@@ -26,10 +26,11 @@ class MissingDataHandlerV1:
         missing = missing/len(self.df)
         missing.sort_values(ascending = False, inplace=True)
         missing = missing * 100
-        missing.plot.bar()
         print(missing.head(50))
+        missing.plot.bar()
+        
 
-    def assign_data_labels(self) -> None:
+    def assign_default_data_labels(self) -> None:
         """ Assigns data labels to categorical and numerical variables """
         
         self.numeric_data = self.df.select_dtypes(include=[np.number])
@@ -48,7 +49,6 @@ class MissingDataHandlerV1:
         missing_new = _df.isnull().sum()
         print(missing_new)
         self.numeric_imputed_data = _df
-
 
     # %%
     def categorical_impute(self) -> None :
