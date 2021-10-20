@@ -21,6 +21,13 @@ DESCRIPTION = 'Basic utils for Data Processing and Machine Learning'
 LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"
 
+classifiers = [
+    'Development Status :: 3 - Beta', 
+    'Intended Audience :: Developers',
+    'Operating System :: Windows::MacOS::Linux ' ,
+    'Liscence :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3'
+]
 ## Installing dependencies from requirements.txt
 __requirements__ = [
     l
@@ -28,7 +35,8 @@ __requirements__ = [
     if l and not l.startswith("#") and not l.startswith("git")
 ]
 
-setup(name=__project__,
+setup(
+      name = __project__,
       version=__version__,
       description=DESCRIPTION,
       long_description=LONG_DESCRIPTION,
@@ -38,5 +46,6 @@ setup(name=__project__,
       author_email=AUTHOR_EMAIL,
       url=URL,
       install_requires=__requirements__,
-      packages=find_packages()
+      packages=find_packages(),
+      classifiers = classifiers
       )
