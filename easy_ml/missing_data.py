@@ -11,7 +11,9 @@ from sklearn.ensemble import ExtraTreesRegressor
 #from sklearn.neighbors import KNeighborsRegressor
 
 class MissingDataHandlerV1:
-    """ A class that takes in the input as pd.DataFrame to analyze missing data and impute Numerical and Categorical values """
+    """ A class that takes in the input as pd.DataFrame to analyze missing data and impute Numerical and Categorical values 
+    TODO : 1. Accept a argument use_default_categorization = True which automatically categorized numerical and categorical values and stores it as attributes
+    """
     
     def __init__(self , df:pd.DataFrame = None ) -> None:
         self.df = df
