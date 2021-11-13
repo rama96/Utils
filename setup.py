@@ -14,7 +14,7 @@ __version__ = '0.0.1'
 __project__ = 'easy_ml'
 __author__ = 'Ramamurthi'
 AUTHOR_EMAIL = 'ramamurthi96@gmail.com'
-URL = 'git@github.com:rama96/Utils.git'
+URL = 'https://github.com/rama96/Utils.git'
 
 LICENSE = 'Apache License 2.0'
 DESCRIPTION = 'Basic utils for Data Processing and Machine Learning'
