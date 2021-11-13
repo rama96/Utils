@@ -99,9 +99,9 @@ class PreProcess :
         for c in dt_columns:
             print(c)
             if dt[c].dtype != "object":
-                dt[c] = self.normalize(dt[c],2)
+                dt[c] = self._normalize(dt[c],2)
             else:
-                onehot_encoded = self.onehot(dt[c], c)
+                onehot_encoded = self._onehot(dt[c], c)
                 dt = dt.join(onehot_encoded)
                 dt = dt.drop([c], axis=1)
         return dt
@@ -124,13 +124,12 @@ class PreProcess :
         
         dt_columns= cols
         for c in dt_columns:
-                df[c] = self.normalize(df[c],2)
+                df[c] = self._normalize(df[c],2)
         return df
 
     
     # %%
-    @staticmethod
-    def normalize(self , X_skewed:pd.Series , skew_threshold:int = 2) -> pd.Series:
+    def _normalize(self , X_skewed:pd.Series , skew_threshold:int = 2) -> pd.Series:
         """ Helper function which normalizes numeric variables using power transformation """
         
         if skew(X_skewed)>abs(skew_threshold):
