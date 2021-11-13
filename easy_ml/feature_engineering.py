@@ -12,7 +12,21 @@ from sklearn.preprocessing import PowerTransformer
 
 
 class FeatureScaler:
+    """ Class used for performing transforms such as min_max-scaler , standard scaler and power transforms 
+    -----------------------------------------------------------------------------------------------------
+    Args : 
+        df - Dataframe which needs processing 
+        min_max_cols - Coolumns which are to be scaled using min_max_scaler
+        standard_cols - Coolumns which are to be scaled using standard_scaler
+        power_transform_cols - Coolumns which are to be scaled using power_transform
+    -----------------------------------------------------------------------------------------------------
     
+    -----------------------------------------------------------------------------------------------------
+    Usage : 
+    
+    -----------------------------------------------------------------------------------------------------
+    
+    """
     def __init__(self , df : pd.DataFrame = None , min_max_cols : List = [] , standard_cols : List = [] , power_transform_cols : List = []) -> None:
         self.min_max_cols = min_max_cols
         self.standard_cols = standard_cols

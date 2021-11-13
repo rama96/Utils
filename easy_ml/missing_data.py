@@ -26,8 +26,8 @@ class MissingDataHandlerV1:
         missing = missing/len(self.df)
         missing.sort_values(ascending = False, inplace=True)
         missing = missing * 100
-        print(missing.head(50))
-        missing.plot.bar()
+        # print(missing.head(50))
+        # missing.plot.bar()
         return missing
         
 
