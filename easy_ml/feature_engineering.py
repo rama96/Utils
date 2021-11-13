@@ -91,6 +91,7 @@ class PreProcess :
         pass
         
     # %%
+    @staticmethod
     def prepare_data(self , dt:pd.DataFrame) -> pd.DataFrame: 
         """ Function to Normalize numeric Variables and OneHot encode categorical variables """
         
@@ -105,8 +106,30 @@ class PreProcess :
                 dt = dt.drop([c], axis=1)
         return dt
 
+    @staticmethod
+    def convert_to_onehot(self , df:pd.DataFrame , cols:list) -> pd.DataFrame: 
+        """ Function to one hot columns given the categorical columns and data as input """
+        
+        dt_columns= cols
+        for c in dt_columns:
+                onehot_encoded = self._onehot(df[c], c)
+                df = df.join(onehot_encoded)
+                df = df.drop([c], axis=1)
+        return df
 
+
+    @staticmethod
+    def normalize_numerical_cols(self , df:pd.DataFrame , cols:list) -> pd.DataFrame: 
+        """ Function to one hot columns given the categorical columns and data as input """
+        
+        dt_columns= cols
+        for c in dt_columns:
+                df[c] = self.normalize(df[c],2)
+        return df
+
+    
     # %%
+    @staticmethod
     def normalize(self , X_skewed:pd.Series , skew_threshold:int = 2) -> pd.Series:
         """ Helper function which normalizes numeric variables using power transformation """
         
@@ -119,7 +142,7 @@ class PreProcess :
             return X_skewed
 
     # %%
-    def onehot(self , X_column:pd.Series , column_name:str) -> pd.DataFrame:
+    def _onehot(self , X_column:pd.Series , column_name:str) -> pd.DataFrame:
         """ Helper function that Uses a label encoder which then Assign labels and OneHotEncodes the whole variable"""
         
         #Labe Encoding
