@@ -1,10 +1,10 @@
 from fastai.vision.all import *
-from easy_ml import DIR_KAGGLE , DIR_DATA , create_directory_if_not_exists
-file = DIR_KAGGLE.joinpath("kaggle.json")
+import typing 
+from easy_ml import DIR_KAGGLE , DIR_DATA , create_directory_if_not_exists , KAGGLE_KEY_PATH
 import pathlib
+import json
 
-
-def setup_kaggle(filepath:typing.Union[str, pathlib.Path] = file):
+def setup_kaggle(filepath:typing.Union[str, pathlib.Path] = KAGGLE_KEY_PATH):
     """ 
         Reads the downlaoded kaggle.json from the specified filepath from
         and stores it ~/.kaggle folder to setup kaggle library

@@ -25,6 +25,11 @@ env = os.getenv("PROMOTIONS_ENV", "production").lower()
 if env.lower() != "production":
     print(f"\n***** ENVIROMENT: {env.upper()} *****")
 
+KAGGLE_KEY_PATH = os.getenv("kaggle_json", "NO KEY FOUND")
+
+if KAGGLE_KEY_PATH == "NO KEY FOUND":
+    print("No Key Found ")
+
 
 def create_directory_if_not_exists(path: Path) -> None:
     if not path.is_dir():
