@@ -13,7 +13,7 @@ A package which can be used for preparation of data , importing models , get pre
 ## For Developement
 
 ```bash
-virtualenv -p python3 env
+virtualenv -p python3.9 env
 source env/bin/activate
 printf "\n# Adding this command to read local .env file" >> env/bin/activate
 printf "\nexport \$(grep -v '^#' .env | xargs)" >> env/bin/activate
@@ -24,6 +24,7 @@ printf "\nexport \$(grep -v '^#' .env | xargs)" >> env/bin/activate
 ```bash
 virtualenv -p python3 production_env
 source production_env/bin/activate
+pip install git+https://github.com/rama96/Utils.git
 pip install -e git+https://github.com/rama96/Utils.git#egg=easy_ml
 ```
 
