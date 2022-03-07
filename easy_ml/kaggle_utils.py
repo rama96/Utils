@@ -3,6 +3,8 @@ import typing
 from easy_ml import DIR_KAGGLE , DIR_DATA , create_directory_if_not_exists , KAGGLE_KEY_PATH
 import pathlib
 import json
+import kaggle
+import os
 
 def setup_kaggle(filepath:typing.Union[str, pathlib.Path] = KAGGLE_KEY_PATH):
     """ 
@@ -64,6 +66,16 @@ def download_sample_datasets():
     sample = df.sample(30 , random_state=100)
     sample_file = DIR_SAMPLE.joinpath("sample.csv")
     sample.to_csv(sample_file)
+
+def download_dataset_files(dataset_url,path_to_file):
+    
+    kaggle.api.authenticate()
+    kaggle.api.dataset_download_files(dataset_url, path=path_to_file, unzip=True)
+
+def competition_download_files(competition,path_to_file):
+    kaggle.api.authenticate()
+    kaggle.api.competition_download_files(competition,path_to_file)
+
 
 if __name__=='__main__':
     setup_kaggle()

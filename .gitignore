@@ -131,3 +131,6 @@ dmypy.json
 kaggle.json
 /production_env
 /production
+
+DATA
+models
