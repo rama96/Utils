@@ -1,11 +1,13 @@
 import pandas as pd
 from sklearn import model_selection
 
+from src import RAW_DATA
+
 
 if __name__ == '__main__':
     
     # reading input data
-    df = pd.read_csv("~/Pet_Projects/Utils/DATA/cat-in-the-dat/train.csv")
+    df = pd.read_csv(RAW_DATA)
     df['kfold'] = -1
 
     # Shufffling dataset using sample function
@@ -19,7 +21,11 @@ if __name__ == '__main__':
         print(len(train_idx) , len(val_idx))
         df.loc[val_idx,'kfold'] = fold
     
-    df.to_csv("DATA/cat-in-the-dat/train_folds.csv")
+    print(df.head())
+    
+    # removing index from cols 
+    df = df.drop(columns = ['index'])
+    df.to_csv("DATA/cat-in-the-dat/train_folds.csv", index = False)
 
 
 

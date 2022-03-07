@@ -1,9 +1,11 @@
 export TRAINING_DATA=DATA/cat-in-the-dat/train_folds.csv
-export FOLD=2
-# export model_name='extratrees'
+export N_FOLDS=5
+export MODEL='randomforest'
 
-export model_name='extratrees'
-python src/train.py 
+for ((i=0;i<N_FOLDS;i++));
+do
+   echo "FOLD-"$i" Running"
+   FOLD=$i python src/train.py 
+done
 
-# export model_name='randomforest'
-# python src/train.py 
+
