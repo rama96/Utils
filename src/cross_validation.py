@@ -19,13 +19,21 @@ Major problems include :
 """
 
 class CrossValidation:
-    def __init__(self , df = None , target_cols = [] , n_folds = 5 , problem_type = "binary_classification", shuffle = True ):
+    def __init__(self , 
+                df , 
+                target_cols , 
+                n_folds = 5 , 
+                problem_type = "binary_classification", 
+                shuffle = True ,
+                multilabel_delimiter = ","
+                ):
         self.df = df
         self.n_folds = n_folds
         self.target_cols = target_cols
         self.problem_type = problem_type
         self.shuffle = shuffle
         self.num_targets = len(self.target_cols)
+        self.multilabel_delimiter = multilabel_delimiter
     
     def split(self):
         
@@ -47,15 +55,15 @@ class CrossValidation:
                 raise Exception("Only one class found in the dataframe")
             
             # Stratified K-Fold cross validation
-            elif n_classes > 1:
-                
-                self.df['kfold'] = -1
-                kf = model_selection.StratifiedKFold(n_splits=self.n_folds, shuffle=True)
-                for fold , (train_idx , val_idx) in enumerate(kf.split(X=self.df , y=self.df[target_col].values)):
-                    self.df.loc[val_idx,'kfold'] = fold
-            
+            self.df['kfold'] = -1
+            kf = model_selection.StratifiedKFold(n_splits=self.n_folds, shuffle=True)
+            for fold , (train_idx , val_idx) in enumerate(kf.split(X=self.df , y=self.df[target_col].values)):
+                self.df.loc[val_idx,'kfold'] = fold
         
+    
         # Handling Regression problems (4 , 5) - Use normal K-fold cross validation
+        # TODO: Better way to implement Straified K-Fold here 
+
         elif self.problem_type in ['single_col_regression','multi_col_regression'] :
             
             # Handling exceptions
@@ -64,25 +72,31 @@ class CrossValidation:
             if self.problem_type == 'multi_col_regression' & self.num_targets == 1 :
                 raise Exception("Problem-type of multi_col_regression expected multiple target_col but got 1 col")
             
+            # K-fold
             kf = model_selection.Kfold(n_splits=self.n_folds, shuffle=True)
             for fold , (train_idx , val_idx) in enumerate(kf.split(X=self.df , y=self.df[target_col].values)):
                 self.df.loc[val_idx,'kfold'] = fold
         
-        # Holdout mainly used in time series models - Saving some future data as samples to test out our cross validation 
+        # 6. Holdout mainly used in time series models - Saving some future data as samples to test out our cross validation 
         elif self.problem_type.startswith('holdout_') :
+            
             holdout_percentage = int(self.problem_type.split("_")[1])
-            num_holdout_samples = int(len(self.dataframe) * holdout_percentage / 100)
+            num_holdout_samples = int(len(self.df) * holdout_percentage / 100)
+            
+            # Seperating data by the index by holding out a certain percentage of data
             self.df.loc[:len(self.df) - num_holdout_samples, "kfold"] = 0
             self.df.loc[len(self.df) - num_holdout_samples:, "kfold"] = 1
 
+        
+        # 3. Follow stratified K-fold on the list of targets 
         elif self.problem_type == "multilabel_classification":
             if self.num_targets != 1:
                 raise Exception("Expected targets to be comma seperated in a single col but got list of targets")
             target_col = self.target_cols[0]
             targets = self.df[target_col].apply(lambda x: len(str(x).split(self.multilabel_delimiter)))
             kf = model_selection.StratifiedKFold(n_splits=self.num_folds)
-            for fold, (train_idx, val_idx) in enumerate(kf.split(X=self.dataframe, y=targets)):
-                self.dataframe.loc[val_idx, 'kfold'] = fold
+            for fold, (train_idx, val_idx) in enumerate(kf.split(X=self.df, y=targets)):
+                self.df.loc[val_idx, 'kfold'] = fold
 
         else:
             raise Exception("Invalid Problem type recieved")
@@ -97,12 +111,3 @@ if __name__ == '__main__':
     cv_data = cv.split()
     print(cv_data.head())
     print(cv_data.kfold.value_counts())
-
-
-
-
-
-
-
-
-

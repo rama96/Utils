@@ -13,6 +13,7 @@ TEST_DATA = os.environ.get("TEST_DATA")
 SUBMISSION_DATA = os.environ.get("SUBMISSION_DATA")
 
 
+
 # Path varibales
 
 DIR_PACKAGE = Path(__file__).resolve().parent  # ../promotions/promotions
@@ -23,3 +24,9 @@ DIR_DATA = DIR_BASE.joinpath("DATA")
 
 # ../DATA
 DIR_MODELS = DIR_BASE.joinpath("models")
+
+# ../samples
+DIR_SAMPLES = DIR_PACKAGE.joinpath("samples")
+
+
+

@@ -1,0 +1,100 @@
+id,bin_0,bin_1,bin_2,bin_3,bin_4,nom_0,nom_1,nom_2,nom_3,nom_4,nom_5,nom_6,nom_7,nom_8,nom_9,ord_0,ord_1,ord_2,ord_3,ord_4,ord_5,day,month
+300000,0,0,1,T,Y,Blue,Triangle,Axolotl,Finland,Piano,0870b0a5d,9ceb19dd6,530f8ecc3,9d117320c,3c49b42b8,2,Novice,Warm,j,P,be,5,11
+300001,0,0,0,T,N,Red,Square,Lion,Canada,Piano,a5c276589,1ad744242,12e6161c9,46ae3059c,285771075,1,Master,Lava Hot,l,A,RP,7,5
+300002,1,0,1,F,Y,Blue,Square,Dog,China,Piano,568550f04,1fe17a1fd,27d6df03f,b759e21f0,6f323c53f,2,Expert,Freezing,a,G,tP,1,12
+300003,0,0,1,T,Y,Red,Star,Cat,China,Piano,c5725677e,a6542cec0,30c63bd0c,0b6ec68ff,b5de3dcc4,1,Contributor,Lava Hot,b,Q,ke,2,3
+300004,0,1,1,F,N,Red,Trapezoid,Dog,China,Piano,e70a6270d,97b6a3518,a42386065,f91f3b1ee,967cfa9c9,3,Grandmaster,Lava Hot,l,W,qK,4,11
+300005,0,0,0,F,Y,Blue,Trapezoid,Cat,Russia,Piano,552e3fdc9,7d8bc814a,d59d731b6,4535346a3,8c6182ca8,1,Grandmaster,Freezing,b,W,sn,2,9
+300006,0,0,0,T,Y,Green,Polygon,Cat,India,Oboe,dbfb714a4,788ba7aea,1c619215d,a6ae56854,d45567849,1,Contributor,Freezing,j,O,qP,4,9
+300007,0,0,0,T,N,Green,Trapezoid,Axolotl,Russia,Theremin,19db35594,d42f2b9ec,6b4d0cc44,56304bd77,985eabf13,3,Contributor,Freezing,j,A,KZ,3,1
+300008,0,1,1,T,N,Red,Square,Dog,China,Theremin,9bb7ea2da,a26bedd00,03759a488,b6972d6ec,f0ca30ac1,2,Contributor,Boiling Hot,k,Q,aM,7,3
+300009,0,0,0,T,N,Green,Polygon,Axolotl,Finland,Oboe,e5b29c42b,db64717a3,202a9d22a,6874814be,9bbf75daa,2,Novice,Lava Hot,h,K,xy,4,1
+300010,0,1,1,T,N,Green,Polygon,Axolotl,Costa Rica,Oboe,defc6dd20,788ba7aea,d7326ea7a,e5c6d159d,25df949ae,1,Grandmaster,Boiling Hot,i,S,Dc,2,2
+300011,1,0,0,T,Y,Red,Square,Snake,Russia,Piano,2cac4af40,1f40b9ca8,b8240e94d,edd67eb51,5e47c5d32,2,Grandmaster,Warm,j,E,PA,7,2
+300012,0,0,0,T,N,Green,Trapezoid,Dog,China,Theremin,bd40c81f3,2df6f79a2,0d10d8f0e,72f9294c0,d6d8db802,2,Contributor,Hot,i,I,Uk,1,9
+300013,0,1,0,T,Y,Green,Star,Axolotl,Canada,Oboe,e9f44a509,7e240024b,27e0c7992,7b558b353,2ca464663,1,Grandmaster,Lava Hot,g,E,dP,7,8
+300014,0,0,0,F,N,Blue,Star,Snake,Finland,Piano,83b38aa6b,b3e59b54a,ad0ac1ea7,6844c9a87,2559acac4,1,Contributor,Hot,e,N,rp,2,5
+300015,0,0,0,T,Y,Blue,Triangle,Lion,India,Oboe,2e7f4d636,a19d81efe,e8dad647e,f1de422cc,9ddce3152,3,Grandmaster,Cold,e,V,Jc,7,10
+300016,1,1,0,T,N,Red,Trapezoid,Cat,Canada,Theremin,4604905e7,6f438920f,ad8263c35,6c60695de,68d9249b3,2,Expert,Freezing,l,A,Mf,4,4
+300017,0,0,0,T,Y,Green,Polygon,Lion,Canada,Piano,5d18641ff,78e45cd66,fef807a3e,cb43ab175,6289781a0,1,Grandmaster,Warm,l,F,ut,1,10
+300018,0,1,1,F,Y,Green,Triangle,Lion,India,Piano,472efea17,a26bedd00,042524d7d,ee05c0cc1,45a818b44,1,Master,Freezing,i,V,uS,3,4
+300019,0,0,0,T,Y,Green,Triangle,Axolotl,Russia,Bassoon,475e79160,8ad083b20,8e8048598,5eb32eb38,d8c56bdc5,1,Grandmaster,Lava Hot,i,S,Xh,1,7
+300020,0,0,0,T,Y,Blue,Trapezoid,Hamster,Russia,Theremin,de04b8750,c3517eaeb,99e773789,27edab94e,932ede7a3,1,Contributor,Freezing,i,T,lF,3,8
+300021,0,0,0,T,Y,Green,Trapezoid,Hamster,China,Theremin,908a1b9c9,bb219c9ac,b99bdfec2,97c2074c4,84ffb1969,1,Grandmaster,Cold,a,S,kw,3,7
+300022,0,1,1,F,N,Blue,Trapezoid,Lion,China,Theremin,0b3bec656,2268327b2,a85d5428c,899ab2d86,f8b98aa95,2,Expert,Warm,d,H,Hj,7,1
+300023,0,1,0,T,Y,Red,Star,Axolotl,Russia,Theremin,83b38aa6b,cf82b283d,467a8a887,f5d51064b,ff37346ce,1,Novice,Warm,b,K,MO,3,4
+300024,0,0,1,T,Y,Red,Circle,Snake,Finland,Oboe,ee55b9d67,f134870d4,516654c4e,612ab9e04,de97be1c0,2,Novice,Freezing,e,Y,ud,3,8
+300025,0,1,0,F,Y,Blue,Trapezoid,Hamster,Russia,Bassoon,0b3bec656,fb80a804f,fb05522b9,d2ae52e99,86c140ea6,1,Contributor,Freezing,d,P,aP,5,9
+300026,1,0,0,F,Y,Green,Square,Lion,Russia,Piano,bd7740b93,2c4223dbd,eb7f63824,7551a1761,8f6d4a583,1,Novice,Hot,a,S,Bb,2,1
+300027,1,0,1,T,Y,Green,Trapezoid,Axolotl,China,Bassoon,ca82ad111,02d689659,467a8a887,d20454f08,51c006823,1,Novice,Cold,a,Z,Xi,3,5
+300028,0,1,0,F,Y,Red,Trapezoid,Dog,China,Oboe,416a8f3ab,a78e38dad,4419b238b,9b4f60f30,22e8abea7,1,Novice,Lava Hot,a,F,uS,3,4
+300029,0,0,0,F,Y,Blue,Triangle,Lion,China,Oboe,e6f45aa26,6f438920f,d95b64413,571cd4367,ab6506257,1,Grandmaster,Cold,n,B,sY,1,11
+300030,0,0,1,F,Y,Red,Star,Dog,Finland,Piano,5b0f5acd5,2473094a9,d75bd1f4b,dcea59284,a1badc9c5,3,Novice,Cold,e,Z,Gx,3,7
+300031,0,0,1,T,Y,Green,Polygon,Cat,China,Oboe,ef38568df,a19d81efe,502e9a4f1,5559ae433,6a20b2ab8,1,Contributor,Hot,g,K,dB,1,4
+300032,0,0,0,F,Y,Red,Polygon,Lion,Finland,Piano,200009fc3,7d13ad097,741721971,219a8ad5a,c6550895a,1,Contributor,Cold,l,F,qP,3,3
+300033,0,0,1,T,Y,Blue,Polygon,Hamster,Finland,Oboe,a3f640358,6f438920f,4ba71e861,aa375a783,86a237c09,1,Novice,Lava Hot,b,V,jV,4,8
+300034,0,0,0,F,N,Red,Polygon,Lion,Canada,Oboe,83b38aa6b,baef8ee7b,bce7d2952,f7be66f88,eb0edaa1a,1,Contributor,Warm,g,C,BE,4,8
+300035,0,0,1,F,N,Green,Square,Snake,Finland,Oboe,91a20b464,46c89ef8d,0378e418b,678bfb662,612483ae5,1,Contributor,Warm,k,S,cp,3,2
+300036,0,1,0,F,N,Green,Trapezoid,Axolotl,India,Piano,b7bb45938,d173ac7ca,0ae0f174d,1cc45142a,ba06560b8,2,Novice,Freezing,k,I,lL,2,3
+300037,0,0,0,T,Y,Green,Square,Dog,India,Bassoon,63f642dd9,d173ac7ca,24e9bf7d4,5674ac2b7,79ad328c8,2,Novice,Boiling Hot,f,E,Yb,3,7
+300038,0,0,0,F,N,Blue,Trapezoid,Lion,Russia,Piano,115a252ba,9448b8e3b,042524d7d,12128339c,62dd66449,1,Grandmaster,Cold,l,W,eQ,4,3
+300039,0,0,0,T,N,Red,Square,Snake,Russia,Piano,05950689f,f24d83141,9992c71bf,d17e00f8f,3f7e083bd,2,Grandmaster,Lava Hot,g,E,ps,1,10
+300040,0,0,0,T,Y,Green,Trapezoid,Snake,Russia,Piano,dbc448931,c3c8b7b13,3482f1d44,b2ee5c1ba,5004d59ca,1,Grandmaster,Freezing,i,P,CL,7,1
+300041,0,0,0,T,N,Green,Circle,Snake,Canada,Bassoon,05950689f,0d50f61fd,5783c289c,998aa0f7a,e171c00ac,1,Contributor,Cold,d,E,nh,1,7
+300042,0,0,0,T,Y,Blue,Polygon,Axolotl,Canada,Bassoon,640e1fdd5,08b282a6c,944df579c,0c1c426ff,53509cf75,2,Contributor,Warm,b,K,AP,7,9
+300043,0,1,1,F,N,Red,Trapezoid,Lion,India,Theremin,30a530eab,c73e4dfe1,565399ad3,3c1ae13dc,011a256ed,1,Expert,Lava Hot,g,A,To,1,2
+300044,0,1,0,T,Y,Blue,Trapezoid,Cat,China,Piano,30a15b6bd,5c4ee13e3,ef19d40b7,05827b658,ae825fafb,2,Contributor,Lava Hot,l,X,Ob,7,1
+300045,0,1,1,F,Y,Green,Square,Lion,India,Piano,46cab09da,15ea6e2bb,4addee130,3532dd238,03e01b921,1,Novice,Lava Hot,a,Y,kL,3,2
+300046,0,1,0,F,Y,Green,Circle,Hamster,India,Bassoon,116f7e3e2,cd94f29d1,a4f2b4b24,90dab3dd3,c1ff010e8,1,Novice,Cold,f,J,qo,2,1
+300047,0,0,0,T,Y,Green,Star,Lion,Russia,Bassoon,e6f45aa26,49d1a98ef,080f75dce,f564a8936,33f0a51ac,3,Novice,Cold,i,W,ek,1,3
+300048,0,0,1,F,Y,Green,Star,Lion,China,Oboe,8dcf8adfb,fc88900c4,4b0c6346b,ff7aa8438,04e0c4d58,3,Contributor,Warm,k,Z,sV,4,2
+300049,0,1,0,T,N,Red,Trapezoid,Lion,Costa Rica,Oboe,416a8f3ab,062cd9a70,185418d90,9d1999cf6,7726e88aa,1,Contributor,Freezing,o,G,UO,4,10
+300050,0,1,1,T,N,Green,Trapezoid,Snake,China,Bassoon,96c73114c,c36cea1f7,1cefd8217,aeaaf2bfe,098689d4e,1,Novice,Freezing,i,Q,sD,4,3
+300051,0,0,0,F,Y,Green,Triangle,Dog,Costa Rica,Oboe,b97f51ac4,ec5064acb,c7830529f,6bf92fa24,edea09f15,2,Novice,Hot,o,T,dP,2,2
+300052,1,0,0,F,Y,Red,Star,Lion,Canada,Oboe,908a1b9c9,cbb210c0a,eb50b1f32,b9023027b,f2fb8ff79,1,Novice,Boiling Hot,e,L,Qb,1,11
+300053,0,1,1,T,N,Red,Trapezoid,Lion,Costa Rica,Bassoon,e6f45aa26,54efb1985,47780f68a,79eab8768,a49e2805b,3,Novice,Boiling Hot,a,A,jV,4,2
+300054,1,0,1,T,Y,Red,Trapezoid,Lion,Russia,Piano,f50eb07ae,1ad744242,8e8048598,cae70a043,49bb20e0d,3,Master,Freezing,i,S,gM,3,11
+300055,1,0,0,F,N,Blue,Circle,Lion,Russia,Bassoon,be5592604,f24d83141,c228ac4d5,1c6ab243e,356938755,2,Grandmaster,Lava Hot,g,J,Gb,3,9
+300056,0,1,0,F,Y,Blue,Circle,Hamster,Russia,Piano,321bf770e,32b4b12b1,2fb072e38,a7bf5387a,ac507224c,2,Contributor,Freezing,l,G,hh,3,4
+300057,0,0,0,F,Y,Blue,Polygon,Lion,Russia,Piano,8dcf8adfb,8a34317cb,3f0057c9b,1086ce405,5ebde9dc9,2,Novice,Hot,e,K,ac,3,2
+300058,1,0,0,F,N,Green,Circle,Lion,Russia,Piano,df51b96fc,6057ca561,e700486e7,7ad2c439c,40c71e317,1,Novice,Freezing,j,S,wu,3,8
+300059,0,0,0,F,N,Blue,Polygon,Snake,India,Bassoon,eb0004a0b,16dfb662a,db8d9e064,842d0e1fa,23161b7b3,3,Expert,Boiling Hot,a,T,dQ,1,10
+300060,0,0,0,T,Y,Green,Trapezoid,Cat,Russia,Bassoon,475e79160,4f849ad2d,7763f2131,32a22810c,efe13bfb1,1,Grandmaster,Freezing,h,G,dQ,3,8
+300061,0,0,0,F,N,Green,Square,Snake,China,Theremin,6020a8124,57aa15561,dbe124244,8fe134687,7404124f7,1,Novice,Lava Hot,g,V,kC,1,4
+300062,0,0,0,F,N,Green,Star,Axolotl,Russia,Oboe,88707c9ab,cd94f29d1,a6a36f527,d01a8f4a7,6cede31b7,3,Novice,Freezing,o,G,Vx,3,12
+300063,0,0,1,T,Y,Red,Polygon,Cat,Canada,Oboe,552e3fdc9,74e5a0bce,f8d54b1e6,c289f3add,55d39c2b8,1,Expert,Warm,h,W,eQ,2,9
+300064,0,0,0,T,Y,Red,Square,Snake,Canada,Bassoon,85159d577,0e2f036b5,59886fdb2,068ae176d,fb79a6b3a,1,Contributor,Freezing,e,G,dh,3,3
+300065,0,0,0,T,N,Green,Triangle,Lion,Russia,Piano,b97f51ac4,cebefe5b5,700924d38,b80b1b531,b1c9e4047,2,Novice,Lava Hot,n,S,CL,2,5
+300066,0,0,1,T,Y,Green,Square,Lion,China,Piano,9bb7ea2da,5755f93b2,e700486e7,c109ff3ff,78148bf97,2,Novice,Freezing,k,P,LE,2,11
+300067,0,0,0,T,Y,Green,Trapezoid,Axolotl,China,Piano,af088d192,f24d83141,b99bdfec2,d3c158775,ca1f70e92,1,Novice,Freezing,j,P,aO,2,11
+300068,0,0,1,T,N,Blue,Polygon,Lion,Finland,Oboe,f9d17bb93,1e5e03a86,91c26901a,4d79f2810,dc101c825,1,Grandmaster,Lava Hot,c,Q,XI,1,5
+300069,0,0,0,F,N,Green,Trapezoid,Lion,Canada,Piano,5b1a9f841,0b10fcecc,b042166d5,865bd3250,e03317044,2,Grandmaster,Cold,j,T,vy,2,9
+300070,0,0,1,F,N,Red,Star,Hamster,Finland,Oboe,176809a41,4daee3baf,c04e1ba14,bbfffb3a2,9a5fcb968,1,Grandmaster,Freezing,h,Y,dZ,4,2
+300071,0,0,1,T,Y,Blue,Trapezoid,Axolotl,India,Oboe,2cadfed8e,c79a72c72,a5406a31a,9334c05b1,762bc77c5,3,Contributor,Boiling Hot,g,J,Sc,2,10
+300072,0,0,0,F,Y,Green,Circle,Cat,Canada,Oboe,a3f640358,5a49dd8f6,a5406a31a,2287c2995,f43396604,1,Grandmaster,Hot,d,U,Dx,7,3
+300073,0,0,1,F,N,Blue,Trapezoid,Axolotl,Russia,Piano,60a44c8f4,70994b28a,b09ebe1d6,6e162e4cf,1c39e302b,1,Novice,Warm,l,T,TZ,3,10
+300074,0,0,0,F,N,Green,Trapezoid,Lion,Costa Rica,Piano,a35c346aa,803f6cece,c50b8657f,87a54b79f,cb7a0f5c2,1,Novice,Boiling Hot,o,B,Ed,1,9
+300075,0,0,0,T,Y,Blue,Trapezoid,Lion,Canada,Oboe,d9becff68,b1faf70a1,384a8e15d,584f12ea1,72769ecb5,3,Grandmaster,Hot,d,H,Qo,1,2
+300076,0,0,0,F,N,Red,Trapezoid,Lion,China,Theremin,037bd73d8,4c1bdbe7b,b8240e94d,de61586f8,e98d80815,3,Novice,Boiling Hot,h,L,kr,3,2
+300077,0,0,0,F,Y,Red,Star,Dog,India,Oboe,39647c92a,b1c48d202,f911cbe30,498258984,7759db288,1,Novice,Cold,d,V,Mx,1,9
+300078,1,0,1,F,N,Red,Star,Axolotl,Finland,Theremin,f2d59cf51,d804d7926,805d37bb5,b8d8d9935,78dc73205,1,Grandmaster,Freezing,f,O,ek,2,5
+300079,1,1,0,F,Y,Red,Trapezoid,Cat,Canada,Piano,92190168b,e16557b2b,8ced116b7,5930392c8,4c0f35fd7,1,Expert,Boiling Hot,e,H,kw,3,2
+300080,0,0,0,T,Y,Green,Circle,Snake,Russia,Piano,908a1b9c9,2ed5a94b0,3f0057c9b,0afef3ea2,744a31ac5,1,Grandmaster,Freezing,e,G,Gb,7,1
+300081,0,0,1,F,Y,Green,Trapezoid,Cat,Russia,Bassoon,8266050c6,126c2e512,bce324061,709a5ffd4,6e8ae00d1,1,Expert,Freezing,j,T,wu,4,5
+300082,0,0,0,F,N,Green,Trapezoid,Snake,India,Theremin,d9becff68,8fec7bc42,43a3f1dd4,06366367b,83e86ee98,1,Grandmaster,Lava Hot,i,R,su,1,10
+300083,0,0,0,T,Y,Blue,Trapezoid,Lion,Russia,Piano,af088d192,51d5f02c1,3fc00f7c8,50d48251c,4b3450cca,1,Novice,Warm,f,T,ll,3,1
+300084,0,0,0,F,N,Blue,Star,Snake,Finland,Piano,19db35594,29e27ff9d,8fa0da83a,1b9c7e71f,96ce228a8,2,Novice,Boiling Hot,f,T,gM,7,3
+300085,1,0,0,F,Y,Blue,Square,Snake,Russia,Oboe,713ad10a7,975346729,ff8d529ff,4b7ec4f76,acccc43ca,1,Novice,Lava Hot,g,T,Fd,3,11
+300086,0,0,0,F,Y,Green,Square,Snake,Canada,Piano,9bb7ea2da,d6f8634af,d18fe040f,4cd920251,3e7285e7f,2,Novice,Hot,k,W,Rm,3,1
+300087,0,1,0,T,Y,Blue,Trapezoid,Lion,Russia,Theremin,321bf770e,c3c8b7b13,594f7042d,994e995cc,6be0404f5,3,Master,Boiling Hot,g,I,bF,3,12
+300088,0,1,0,T,Y,Green,Square,Dog,Russia,Oboe,59497d53c,bf82c01fa,c44ee82e9,9531f3760,85b164bf0,2,Novice,Boiling Hot,l,T,rZ,3,2
+300089,0,1,0,T,Y,Green,Trapezoid,Snake,Finland,Bassoon,96c73114c,4c183f1ef,99a4414f3,3427141f5,5498d8837,2,Novice,Lava Hot,a,P,ux,5,8
+300090,0,0,1,T,Y,Red,Square,Dog,Canada,Theremin,60a44c8f4,db64717a3,5dc3e05e9,f83129387,ed8a0b9fd,2,Contributor,Lava Hot,l,E,RL,2,4
+300091,0,0,1,T,Y,Green,Trapezoid,Axolotl,Russia,Piano,185ba0a59,d4d727716,ec69236eb,b81808e2c,94ab6be82,1,Novice,Warm,h,S,od,2,9
+300092,0,1,0,T,Y,Green,Trapezoid,Lion,Russia,Piano,5a466e166,687eaba3e,51f3e394c,8614b6af1,645de9c78,1,Grandmaster,Boiling Hot,i,R,Uu,4,3
+300093,0,1,0,T,Y,Blue,Square,Snake,China,Bassoon,91bde92fa,3b9693870,1cefd8217,cb6b287ca,0a90e64ab,1,Grandmaster,Boiling Hot,g,P,Kq,4,9
+300094,0,1,1,T,Y,Green,Square,Axolotl,China,Piano,c0534106d,fc791ebea,3f95dca80,b4ed5f261,dba2e2784,3,Contributor,Boiling Hot,l,Q,dP,5,4
+300095,1,0,0,F,Y,Green,Trapezoid,Dog,Russia,Piano,552e3fdc9,113deddc9,d79621729,a89fae205,aa7acf75a,3,Grandmaster,Cold,i,T,Kq,7,8
+300096,0,0,1,F,Y,Blue,Star,Snake,India,Bassoon,4e28ceffa,edb3cf6c8,74912d804,92e5d0d61,322e5a5a6,1,Novice,Lava Hot,e,F,qX,7,10
+300097,0,0,0,T,Y,Green,Triangle,Dog,Canada,Piano,05950689f,3e41282ec,0074c698f,b3309192a,11c6c1cb5,3,Contributor,Cold,h,F,sD,1,1
+300098,0,1,1,F,Y,Green,Trapezoid,Axolotl,Finland,Piano,a93b89fc9,42b1cc2fd,7f1dc7d07,36231af84,34652bd97,1,Grandmaster,Freezing,f,A,ke,2,3
