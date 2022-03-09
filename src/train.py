@@ -3,7 +3,7 @@ import pandas as pd
 import os
 from src.dispatcher import MODELS
 import joblib
-from src import MODEL , TRAINING_DATA , N_FOLDS , FOLD
+from src import MODEL , TRAINING_DATA , N_FOLDS , FOLD , TEST_DATA
 
 print(MODEL)
 
@@ -21,6 +21,7 @@ if __name__== "__main__":
     
     # reading the training data
     df = pd.read_csv(TRAINING_DATA)
+    df_test = pd.read_csv(TEST_DATA)
     
     # dividing df into train and valid based on fold values
     train_df = df[df['kfold'].isin(FOLD_MAPPING[FOLD])]
@@ -45,7 +46,7 @@ if __name__== "__main__":
     # since all the variables are vategorical variables , we iterate through all columns , if not we only select categgorical variables here 
     for c in train_df.columns:
         lbl = preprocessing.LabelEncoder()
-        lbl.fit(train_df[c].values.tolist() + valid_df[c].values.tolist() )
+        lbl.fit(train_df[c].values.tolist() + valid_df[c].values.tolist() + df_test[c].values.tolist())
         train_df.loc[:,c] = lbl.transform(train_df[c].values.tolist())
         valid_df.loc[:,c] = lbl.transform(valid_df[c].values.tolist())
         label_encoders[c] = lbl

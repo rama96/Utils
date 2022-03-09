@@ -3,8 +3,8 @@ import pandas as pd
 import os
 from src.dispatcher import MODELS
 import joblib
-from src import N_FOLDS , TEST_DATA , MODEL , FOLD
-
+from src import N_FOLDS , TEST_DATA , MODEL , FOLD , DIR_MODELS , SUBMISSION_DATA
+import numpy as np
 
 def predict():
     
@@ -16,8 +16,8 @@ def predict():
         # reading the test data
         df = pd.read_csv(TEST_DATA)
 
-        label_encoders = joblib.load(os.path.join("models",f"models/{MODEL}_{FOLD}_label_encoder.pkl"))
-        cols = joblib.load(os.path.join("models",f"models/{MODEL}_{FOLD}_columns.pkl"))
+        label_encoders = joblib.load(os.path.join(DIR_MODELS,f"{MODEL}_{FOLD}_label_encoder.pkl"))
+        cols = joblib.load(os.path.join(DIR_MODELS,f"{MODEL}_{FOLD}_columns.pkl"))
         
         # since all the variables are vategorical variables , we iterate through all columns , if not we only select categgorical variables here 
         for c in cols:
@@ -25,7 +25,7 @@ def predict():
             df.loc[:,c] = lbl.transform(df[c].values.tolist())
         
         # loading classifiers 
-        clf = joblib.load(os.path.join("models",f"models/{MODEL}_{FOLD}_model.pkl"))
+        clf = joblib.load(os.path.join(DIR_MODELS,f"{MODEL}_{FOLD}_model.pkl"))
         
         
         # filtering only required columns just in case there are extra columns in the test data
@@ -45,6 +45,9 @@ def predict():
     # Taking average of all the predictions 
     predictions/=N_FOLDS
 
+    # rounding up the predictions 
+    predictions = np.round(predictions, 2)
+    
     # Adding the predictions to test_dataset
     test_data = pd.read_csv(TEST_DATA)
     test_data['predicted_proba'] = predictions
@@ -56,7 +59,10 @@ def predict():
 
 if __name__== "__main__":
     df_predicted = predict()
-    submission = df_predicted[['ID','predicted_proba']]
+    submission = df_predicted[['id','predicted_proba']]
     submission.columns =  ['id','target']
-    
+    print(SUBMISSION_DATA)
+    submission.to_csv(SUBMISSION_DATA,index=False)
+
+
         

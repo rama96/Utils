@@ -1,6 +1,6 @@
 export TRAINING_DATA=DATA/cat-in-the-dat/train_folds.csv
 export N_FOLDS=5
-export MODEL='randomforest'
+export MODEL='extratrees'
 
 for ((i=0;i<N_FOLDS;i++));
 do
