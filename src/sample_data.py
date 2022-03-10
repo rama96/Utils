@@ -15,10 +15,10 @@ class SampleData:
             DIR_DATASET = DIR_SAMPLES.joinpath("multilabel_classification")
             
         elif problem_type == "regression":
-            DIR_DATASET = DIR_SAMPLES.joinpath("binary_classification")
+            DIR_DATASET = DIR_SAMPLES.joinpath("regression")
             
         elif problem_type == "time_series":
-            DIR_DATASET = DIR_SAMPLES.joinpath("binary_classification")
+            DIR_DATASET = DIR_SAMPLES.joinpath("time_series")
             
         else :
             raise Exception("Invalid problem type entered")

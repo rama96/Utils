@@ -26,7 +26,7 @@ DIR_DATA = DIR_BASE.joinpath("DATA")
 DIR_MODELS = DIR_BASE.joinpath("models")
 
 # ../samples
-DIR_SAMPLES = DIR_PACKAGE.joinpath("samples")
+DIR_SAMPLES = DIR_BASE.joinpath("samples")
 
 
 
