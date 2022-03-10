@@ -23,5 +23,5 @@ class SampleData:
         else :
             raise Exception("Invalid problem type entered")
 
-        self.test = pd.read_csv(DIR_DATASET.joinpath("train.csv"))
-        self.train = pd.read_csv(DIR_DATASET.joinpath("test.csv"))
+        self.train = pd.read_csv(DIR_DATASET.joinpath("train.csv"))
+        self.test = pd.read_csv(DIR_DATASET.joinpath("test.csv"))
