@@ -27,6 +27,43 @@ class CrossValidation:
                 shuffle = True ,
                 multilabel_delimiter = ","
                 ):
+        """  A class that returns the train and cv splits of the data depending on the problem type and other parameters
+
+        Parameters :
+        ----------
+            df : pd.DataFrame 
+            - The df for which you need to perform the splits 
+            
+            n_folds : int 
+            - The number of folds of CV you need
+
+            problem_type : str    
+            - Accepts 5 problem types for now 
+                            1. binary_classification
+                            2. multi_classification
+                            3. multilabel_classification
+                            4. single_col_regression
+                            5. multi_col_regression
+                            6. holdout_x
+            
+            target_cols : list 
+            - The list of independent varaibles ,  ex : ['target']
+
+            shuffle : bool 
+            - A binary value to check if the dataframe needs to be shuffled .
+
+            multilabel_delimiter : str
+            - A delimiter used in case of multilabel classification to seperate out the classes
+        ----------
+        
+        Returns : 
+        ----------    
+            df : pd.Dataframe 
+            - Returns the original dataframe with a column added named as kfold
+        ----------
+
+
+        """
         self.df = df
         self.n_folds = n_folds
         self.target_cols = target_cols
