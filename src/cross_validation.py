@@ -126,7 +126,7 @@ class CrossValidation:
                 raise Exception("Expected targets to be comma seperated in a single col but got list of targets")
             target_col = self.target_cols[0]
             targets = self.df[target_col].apply(lambda x: len(str(x).split(self.multilabel_delimiter)))
-            kf = model_selection.StratifiedKFold(n_splits=self.num_folds)
+            kf = model_selection.StratifiedKFold(n_splits=self.n_folds)
             for fold, (train_idx, val_idx) in enumerate(kf.split(X=self.df, y=targets)):
                 self.df.loc[val_idx, 'kfold'] = fold
 
