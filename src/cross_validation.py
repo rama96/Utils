@@ -3,6 +3,7 @@ from re import L, M
 import pandas as pd
 from sklearn import model_selection
 from src import TRAINING_DATA
+from src.sample_data import SampleData
 
 """ 
 This module is for handling crosss validation for various types of datasets :
@@ -31,40 +32,34 @@ class CrossValidation:
 
         Parameters :
         ----------
-            df : pd.DataFrame 
-            - The df for which you need to perform the splits 
+            - df : pd.DataFrame 
+            The df for which you need to perform the splits 
             
-            n_folds : int 
-            - The number of folds of CV you need
+            - n_folds : int 
+            The number of folds of CV you need
 
-            problem_type : str    
-            - Accepts 5 problem types for now 
-                            1. binary_classification
-                            2. multi_classification
-                            3. multilabel_classification
-                            4. single_col_regression
-                            5. multi_col_regression
-                            6. holdout_x
+            - problem_type : str    
+            Accepts 5 problem types for now :
+                            
+                            1. 'binary_classification'
+                            2. 'multi_classification'
+                            3. 'multilabel_classification'
+                            4. 'single_col_regression'
+                            5. 'multi_col_regression'
+                            6. 'holdout_x'
             
-            target_cols : list 
-            - The list of independent varaibles ,  ex : ['target']
+            - target_cols : list 
+            The list of independent varaibles ,  ex : ['target']
 
-            shuffle : bool 
-            - A binary value to check if the dataframe needs to be shuffled .
+            - shuffle : bool 
+            A binary value to check if the dataframe needs to be shuffled .
 
-            multilabel_delimiter : str
-            - A delimiter used in case of multilabel classification to seperate out the classes
+            - multilabel_delimiter : str
+            A delimiter used in case of multilabel classification to seperate out the classes
         ----------
         
-        Returns : 
-        ----------    
-            df : pd.Dataframe 
-            - Returns the original dataframe with a column added named as kfold
-        ----------
-
-
         """
-        self.df = df
+        self.df = df.copy()
         self.n_folds = n_folds
         self.target_cols = target_cols
         self.problem_type = problem_type
@@ -93,7 +88,7 @@ class CrossValidation:
             
             # Stratified K-Fold cross validation
             self.df['kfold'] = -1
-            kf = model_selection.StratifiedKFold(n_splits=self.n_folds, shuffle=True)
+            kf = model_selection.StratifiedKFold(n_splits=self.n_folds,shuffle = False)
             for fold , (train_idx , val_idx) in enumerate(kf.split(X=self.df , y=self.df[target_col].values)):
                 self.df.loc[val_idx,'kfold'] = fold
         
@@ -104,14 +99,14 @@ class CrossValidation:
         elif self.problem_type in ['single_col_regression','multi_col_regression'] :
             
             # Handling exceptions
-            if self.problem_type == 'single_col_regression' & self.num_targets > 1 :
+            if (self.problem_type == 'single_col_regression') & (self.num_targets > 1) :
                 raise Exception("Problem-type of single_col_regression expected 1 target_col but got multiple cols")
-            if self.problem_type == 'multi_col_regression' & self.num_targets == 1 :
+            if (self.problem_type == 'multi_col_regression') & (self.num_targets == 1) :
                 raise Exception("Problem-type of multi_col_regression expected multiple target_col but got 1 col")
             
             # K-fold
-            kf = model_selection.Kfold(n_splits=self.n_folds, shuffle=True)
-            for fold , (train_idx , val_idx) in enumerate(kf.split(X=self.df , y=self.df[target_col].values)):
+            kf = model_selection.KFold(n_splits=self.n_folds, shuffle=False)
+            for fold , (train_idx , val_idx) in enumerate(kf.split(X=self.df , y=self.df[self.target_cols].values)):
                 self.df.loc[val_idx,'kfold'] = fold
         
         # 6. Holdout mainly used in time series models - Saving some future data as samples to test out our cross validation 
@@ -143,8 +138,8 @@ class CrossValidation:
                 
 if __name__ == '__main__':
     
-    df = pd.read_csv(TRAINING_DATA)
-    cv = CrossValidation(df = df , target_cols=['target'], n_folds=5 , problem_type = "binary_classification",shuffle=True)
+    df = SampleData("regression").train
+    cv = CrossValidation(df = df , target_cols=['SalePrice'], n_folds=5 , problem_type = "single_col_regression",shuffle=True)
     cv_data = cv.split()
     print(cv_data.head())
     print(cv_data.kfold.value_counts())
