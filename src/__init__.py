@@ -22,6 +22,9 @@ DIR_BASE = DIR_PACKAGE.parent  # ../promotions/
 # ../DATA
 DIR_DATA = DIR_BASE.joinpath("DATA")
 
+# ../DATA/DEBUG
+DIR_DEBUG = DIR_DATA.joinpath("DEBUG")
+
 # ../DATA
 DIR_MODELS = DIR_BASE.joinpath("models")
 

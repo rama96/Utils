@@ -1,5 +1,6 @@
 from sklearn import preprocessing
-
+from src.sample_data import SampleData
+import pandas as pd
 
 class CategoricalFeatures:
     def __init__(self, df, categorical_features, encoding_type, handle_na=False):
@@ -53,6 +54,15 @@ class CategoricalFeatures:
         ohe.fit(self.df[self.cat_feats].values)
         return ohe.transform(self.df[self.cat_feats].values)
 
+    # One hot encoding using pd.dummies
+    def _one_hot_2(self):
+        for col in self.cat_feats:
+            onehot_encoded=pd.get_dummies(self.df[col].values, prefix=col)
+            self.output_df = pd.concat([self.output_df, onehot_encoded], axis = 1)
+        self.output_df = self.output_df.drop(columns=self.cat_feats , axis = 1)
+        return self.output_df
+
+    
     def fit_transform(self):
         if self.enc_type == "label":
             return self._label_encoding()
@@ -60,6 +70,8 @@ class CategoricalFeatures:
             return self._label_binarization()
         elif self.enc_type == "ohe":
             return self._one_hot()
+        elif self.enc_type == "ohe2":
+            return self._one_hot_2()
         else:
             raise Exception("Encoding type not understood")
     
@@ -93,9 +105,14 @@ class CategoricalFeatures:
 if __name__ == "__main__":
     import pandas as pd
     from sklearn import linear_model
-    df = pd.read_csv("../input/train_cat.csv")
-    df_test = pd.read_csv("../input/test_cat.csv")
-    sample = pd.read_csv("../input/sample_submission.csv")
+    from src import DIR_DEBUG
+    import numpy as np
+    
+    binary_sample = SampleData("binary_classification")
+
+    df = binary_sample.train
+    df_test = binary_sample.test
+    # sample = pd.read_csv("../input/sample_submission.csv")
 
     train_len = len(df)
 
@@ -116,5 +133,10 @@ if __name__ == "__main__":
     clf.fit(X, df.target.values)
     preds = clf.predict_proba(X_test)[:, 1]
     
-    sample.loc[:, "target"] = preds
-    sample.to_csv("submission.csv", index=False)
+    print(full_data_transformed.head())
+    full_data_transformed['predicted_probabilities'] = -1
+    full_data_transformed[train_len:,'predicted_probabilities'] = np.round(preds,2)
+    
+    filepath = DIR_DEBUG.joinpath("categorical_results.csv")
+
+    full_data_transformed.to_csv(filepath)
