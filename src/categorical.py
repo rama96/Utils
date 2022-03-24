@@ -18,6 +18,9 @@ class CategoricalFeatures:
         self.binary_encoders = dict()
         self.ohe = None
 
+        # Resting index to aviod errors
+        self.df.reset_index(drop = True , inplace = True)
+        
         # Replacing NAs with -9999999
         if self.handle_na:
             for c in self.cat_feats:
@@ -25,6 +28,12 @@ class CategoricalFeatures:
         
         # Taking deep copy and not shallow copy
         self.output_df = self.df.copy(deep=True)
+    
+    #TODO : frequency based encoding 
+    
+    
+    #TODO : target based encoding 
+    
     
     # Helper function for label encoding using sklearn label encoder. Nothing fancy
     def _label_encoding(self):
@@ -58,7 +67,10 @@ class CategoricalFeatures:
     def _one_hot_2(self):
         for col in self.cat_feats:
             onehot_encoded=pd.get_dummies(self.df[col].values, prefix=col)
+            # removing the last redundant variable 
+            onehot_encoded = onehot_encoded.iloc[:, :-1]
             self.output_df = pd.concat([self.output_df, onehot_encoded], axis = 1)
+
         self.output_df = self.output_df.drop(columns=self.cat_feats , axis = 1)
         return self.output_df
 
@@ -122,12 +134,13 @@ if __name__ == "__main__":
     cols = [c for c in df.columns if c not in ["id", "target"]]
     cat_feats = CategoricalFeatures(full_data, 
                                     categorical_features=cols, 
-                                    encoding_type="ohe",
+                                    encoding_type="ohe2",
                                     handle_na=True)
     full_data_transformed = cat_feats.fit_transform()
     
-    X = full_data_transformed[:train_len, :]
-    X_test = full_data_transformed[train_len:, :]
+    full_data_transformed = full_data_transformed.drop(columns = 'id' , axis = 1)
+    X = full_data_transformed[:train_len].values
+    X_test = full_data_transformed[train_len:].values
 
     clf = linear_model.LogisticRegression()
     clf.fit(X, df.target.values)
@@ -135,7 +148,7 @@ if __name__ == "__main__":
     
     print(full_data_transformed.head())
     full_data_transformed['predicted_probabilities'] = -1
-    full_data_transformed[train_len:,'predicted_probabilities'] = np.round(preds,2)
+    full_data_transformed.loc[train_len:,'predicted_probabilities'] = np.round(preds,2)
     
     filepath = DIR_DEBUG.joinpath("categorical_results.csv")
 
