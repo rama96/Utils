@@ -12,10 +12,9 @@ from sklearn.preprocessing import PowerTransformer
 
 
 class FeatureScaler:
-    """ A wrapper over the sklearn preprocessing modules 
+    """ A wrapper over the sklearn preprocessing modules for numerical data
     -----------------------------------------------------------------------------------------------------
     Args : 
-        df - Dataframe which needs processing 
         min_max_cols - Coolumns which are to be scaled using min_max_scaler
         standard_cols - Coolumns which are to be scaled using standard_scaler
         power_transform_cols - Coolumns which are to be scaled using power_transform
@@ -23,6 +22,13 @@ class FeatureScaler:
     
     -----------------------------------------------------------------------------------------------------
     Usage : 
+    >> scaler = FeatureScaler(min_max_cols = ['col1','col2'] , standard_cols = ['col3','col4'])
+    >> scaler.fit(df)
+    >> df_transformed = scaler.transform(df)
+    
+    # alternatively you can also use fit transform 
+    >> df_transformed = scaler.fit_transform(df)
+
     
     -----------------------------------------------------------------------------------------------------
     
@@ -62,7 +68,26 @@ class FeatureScaler:
 
 
 class CategoricalEncoder:
+    """ A wrapper over the sklearn preprocessing modules for categorical data
+    -----------------------------------------------------------------------------------------------------
+    Args : 
+        nominal_cols : columns to be onehotencoded 
+    -----------------------------------------------------------------------------------------------------
     
+    -----------------------------------------------------------------------------------------------------
+    Usage : 
+    
+    >> enc = CategoricalEncoder(nominal_cols = ['col1','col2'])
+    >> enc.fit(df)
+    >> df_transformed = enc.transform(df)
+    
+    # alternatively you can also use fit transform 
+    >> df_transformed = enc.fit_transform(df)
+
+    -----------------------------------------------------------------------------------------------------
+    
+
+    """
     def __init__(self , ordinal_cols : List = [] , nominal_cols : List = [] ) -> None:
         
         # Only implemented for OneHotEncoder()
