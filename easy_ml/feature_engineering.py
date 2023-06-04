@@ -12,7 +12,7 @@ from sklearn.preprocessing import PowerTransformer
 
 
 class FeatureScaler:
-    """ Class used for performing transforms such as min_max-scaler , standard scaler and power transforms 
+    """ A wrapper over the sklearn preprocessing modules 
     -----------------------------------------------------------------------------------------------------
     Args : 
         df - Dataframe which needs processing 
@@ -27,60 +27,79 @@ class FeatureScaler:
     -----------------------------------------------------------------------------------------------------
     
     """
-    def __init__(self , df : pd.DataFrame = None , min_max_cols : List = [] , standard_cols : List = [] , power_transform_cols : List = []) -> None:
-        self.min_max_cols = min_max_cols
-        self.standard_cols = standard_cols
-        self.power_transform_cols = power_transform_cols
-        self.df = df
+    def __init__(self , min_max_cols : List = [] , standard_cols : List = [] , power_transform_cols : List = []) -> None:
         
+        self.columns = {
+            'min_max':min_max_cols,
+            'standard_scaler':standard_cols,
+            'power_transformer':power_transform_cols
+        }
         
-    def min_max_scaler(self,df) -> pd.DataFrame:
-        cols = self.min_max_cols
-        if not cols:
-            return df
-        else :
-            min_max = MinMaxScaler()
-            df[cols] = pd.DataFrame(min_max.fit_transform(df[cols]) , columns = cols)
-            return df
+        self.scalers = {
+            'min_max':MinMaxScaler(),
+            'standard_scaler':StandardScaler(),
+            'power_transformer':PowerTransformer(),
+        }
+                    
+    def fit(self,df):
+        for key in self.scalers.keys():
+            cols = self.columns[key]
+            if cols :
+                self.scalers[key].fit(df[cols])
     
-    def standard_scaler(self,df) -> pd.DataFrame:
-        cols = self.standard_cols
-        if not cols:
-            return df
-        else :
-            min_max_scaler = StandardScaler()
-            df[cols] = pd.DataFrame(min_max_scaler.fit_transform(df[cols]) , columns = cols)
-            return df
+
+    def transform(self,df):
         
-    def power_transformer(self,df) -> pd.DataFrame:
-        cols = self.power_transform_cols
-        if not cols:
-            return df
-        else :
-            for col in cols:
-                df[col] = self._power_transform(df[col])
-            return df
+        for key in self.scalers.keys():
+            cols = self.columns[key]
+            if cols :
+                df[cols] = self.scalers[key].transform(df[cols])
+        return df
+    
+    def fit_transform(self,df):
+        self.fit(df)
+        return self.transform(df)
+
+
+class CategoricalEncoder:
+    
+    def __init__(self , ordinal_cols : List = [] , nominal_cols : List = [] ) -> None:
+        
+        # Only implemented for OneHotEncoder()
+        self.columns = {
+        #    'oridinal':ordinal_cols,
+            'nominal':nominal_cols,
+        }
+        
+        self.encoders = {
+        #    'ordinal':LabelEncoder(),
+            'nominal':OneHotEncoder(drop='first'),
+        }
+                    
+    def fit(self,df):
+        for key in self.encoders.keys():
+            cols = self.columns[key]
+            if cols :
+                self.encoders[key].fit(df[cols])
+
+    def transform(self,df):
+        
+        for key in self.encoders.keys():
+            cols = self.columns[key]
+            if cols :
                 
-    def _power_transform(self , X_skewed:pd.Series , skew_threshold:int = 2) -> pd.Series:
-        """ Helper function which normalizes numeric variables using power transformation """
-        if skew(X_skewed)>abs(skew_threshold):
-            #X_Normalized, m = stats.boxcox(X_skewed)
-            pt = PowerTransformer()
-            X_Normalized=pt.fit_transform(X_skewed.values.reshape(-1,1))
-            return X_Normalized
-        else:
-            return X_skewed
+                data = self.encoders[key].transform(df[cols]).toarray()
+                colnames = [i+"_"+ str(k) for i,j in zip(self.encoders[key].feature_names_in_,self.encoders[key].categories_) for k in j[1:] ]
+                
+                _df = pd.DataFrame(data , columns = colnames)
+                df = df.drop(cols , axis = 1)
+                df = pd.concat([df,_df],axis = 1)
+
+        return df
     
-    @property
-    def scaled_features(self):
-        transformed_df = self.min_max_scaler(self,self.df)
-        transformed_df = self.standard_scaler(self,transformed_df)
-        transformed_df = self.power_transformer(self,transformed_df)
-        return transformed_df
-
-
-
-
+    def fit_transform(self,df):
+        self.fit(df)
+        return self.transform(df)
 
 
 
