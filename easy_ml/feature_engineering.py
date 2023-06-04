@@ -88,17 +88,17 @@ class CategoricalEncoder:
     
 
     """
-    def __init__(self , ordinal_cols : List = [] , nominal_cols : List = [] ) -> None:
+    def __init__(self , ordinal_cols : List = [] , nominal_cols : List = [] , max_categories = 10) -> None:
         
         # Only implemented for OneHotEncoder()
         self.columns = {
         #    'oridinal':ordinal_cols,
             'nominal':nominal_cols,
         }
-        
+        self.max_categories = max_categories
         self.encoders = {
         #    'ordinal':LabelEncoder(),
-            'nominal':OneHotEncoder(drop='first'),
+            'nominal':OneHotEncoder(drop='first',max_categories=max_categories),
         }
                     
     def fit(self,df):
@@ -114,7 +114,7 @@ class CategoricalEncoder:
             if cols :
                 
                 data = self.encoders[key].transform(df[cols]).toarray()
-                colnames = [i+"_"+ str(k) for i,j in zip(self.encoders[key].feature_names_in_,self.encoders[key].categories_) for k in j[1:] ]
+                colnames = self.encoders[key].get_feature_names_out()
                 
                 _df = pd.DataFrame(data , columns = colnames)
                 df = df.drop(cols , axis = 1)
